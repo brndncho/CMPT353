@@ -1,6 +1,6 @@
 import numpy as np
 
-data = np.load('e1/monthdata.npz')
+data = np.load('monthdata.npz')
 totals = data['totals']
 counts = data['counts']
 
@@ -16,3 +16,9 @@ sumObservationsMonthly = np.sum(counts, axis=0)
 avgMonthlyPrecipitation = np.divide(sumPrecipitationMonthly, sumObservationsMonthly)
 print("Average precipitation in each month: ")
 print(avgMonthlyPrecipitation)
+
+# Average precipitation over each city
+sumCityCount = np.sum(counts, axis=1)
+avgCityPrecipitation = np.divide(sum_totals, sumCityCount)
+print("Average precipitation in each city: ")
+print(avgCityPrecipitation)
