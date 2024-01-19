@@ -1,0 +1,8 @@
+1. I liked using Pandas more.
+   Using the DataFrames seemed to produce less lines of code doing the same thing with NumPy.
+   Also the DataFrames look more clean and presentable on JupyterNotebook.
+2. For the running time in timing.ipynb
+   pivot_months_pandas(data) timed at 9.19 ms ± 121 µs per loop.
+   pivot_months_loops(data) timed at 332 ms ± 3.92 ms per loop.
+   The loop method was slower probably because it uses arrays, and python does not store data in arrays in concurrent memory.
+   Also pandas library was written in C, so it is unsuprising that it can be more efficent.
