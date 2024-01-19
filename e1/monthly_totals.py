@@ -21,10 +21,10 @@ def pivot_months_pandas(data):
 
     data['month'] = data['date'].apply(date_to_month)
     grouped_data = data.groupby(['name', 'month'])
-    sumAggValues = grouped_data.aggregate('sum').reset_index()
+    sumAggValues = grouped_data.agg({'precipitation' : 'sum'}).reset_index()
     monthly = sumAggValues.pivot(index='name', columns='month')
 
-    count_grouped_data = grouped_data.aggregate('count').reset_index
+    count_grouped_data = grouped_data.agg({'precipitation' : 'count'}).reset_index()
     counts = count_grouped_data.pivot(index='name', columns='month')
 
 
