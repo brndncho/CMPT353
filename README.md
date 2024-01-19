@@ -1,1 +1,1 @@
-# CMPT353
+# CMPT353 Homework Assignments
