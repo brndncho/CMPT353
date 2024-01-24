@@ -1,0 +1,4 @@
+1. The calculation of data['timestamp']*fit.slope + fit.intercept is a line of best fit using the ratings over time in the inital linregress calculation. 
+   The data['timestamp'] is the x values in the form of numbers, fit.slope is a float of the best fit line slope, in this case it is positive, and the fit.intercept is a float of the best fit line intercept.
+2. Because linregress did a regression of least squares for 'timestamp' and 'ratings', then you can use the slope and intercept multiplied by the x values, to create a line, because it is in the form of y = mx+b. 
+   y in this line is the predicted rating changes over time, which in this dataset shows a increase in dog rating scores as time moves forward.
