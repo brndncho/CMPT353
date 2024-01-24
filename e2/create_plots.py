@@ -24,9 +24,9 @@ plt.ylabel('Views')
 # plot 2
 data_filename2 = pd.read_csv(filename2, sep=' ', header=None, index_col=1, names=['lang', 'page', 'views', 'bytes'])
 data_filename2_sorted = data_filename2.sort_values(by=['views'], ascending=False)
-data_filename1_sorted['viewsplot2'] = data_filename2_sorted['views'] # x and y must be the same size, cannot be other way around
+data_filename1_sorted['viewsPlot2'] = data_filename2_sorted['views'] # x and y must be the same size, cannot be other way around
 plt.subplot(1, 2, 2) # ... and then select the second
-plt.scatter(data_filename1_sorted['views'].values, data_filename1_sorted['viewsplot2'].values, s=10, c='b') # build plot 2
+plt.scatter(data_filename1_sorted['viewsPlot2'].values, data_filename1_sorted['views'].values, s=10, c='b') # build plot 2
 plt.xscale('log') # logarithmic scales
 plt.yscale('log')
 plt.title('Hourly Correlation')
