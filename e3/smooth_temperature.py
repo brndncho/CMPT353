@@ -27,4 +27,5 @@ kf = pk.KalmanFilter(
 )
 kalman_smoothed, _ = kf.smooth(kalman_data)
 plt.plot(cpu_data['timestamp'], kalman_smoothed[:, 0], 'g-')
-plt.show()
+#plt.show()
+plt.savefig('cpu.svg')
