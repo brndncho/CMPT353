@@ -41,8 +41,8 @@ def distance(points):
 def smooth(points):
     kf = pk.KalmanFilter(
         initial_state_mean= points.iloc[0],
-        observation_covariance= np.diag([0.3, 0.3]) ** 2,
-        transition_covariance= np.diag([0.1, 0.1]) ** 2,
+        observation_covariance= np.diag([0.38, 0.38]) ** 2,
+        transition_covariance= np.diag([0.2, 0.2]) ** 2,
         transition_matrices= [[1, 0], [0, 1]]
     )
     kalman_smoothed, _ = kf.smooth(points)
