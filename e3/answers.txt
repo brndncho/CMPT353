@@ -1,0 +1,2 @@
+1. I think LOESS gave a better result than Kalman. LOESS was less sensitive to outliers compared to Kalman. Kalman was also more jittery.
+2. By using the timestamp compared to the speed/course, we can infer if the data is less, or more trustworthy and that can affect out matrices in the Kalman filter. This data could also affect our transition covariance matrix as the default speed is 1m/s but looking at the data the speed differs quite a bit.

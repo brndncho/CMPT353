@@ -4,11 +4,11 @@ import pandas as pd
 import numpy as np
 import pykalman as pk
 
-def get_data(filename):
+def get_data(filename1):
 
     lon_list = []
     lat_list = []
-    tree = ET.parse(filename)
+    tree = ET.parse(filename1)
     root = tree.getroot()
 
     for trkpt in root.iter('{http://www.topografix.com/GPX/1/0}trkpt'):
@@ -75,10 +75,8 @@ def output_gpx(points, output_filename):
 def main():
     points = get_data(sys.argv[1])
     print('Unfiltered distance: %0.2f' % (distance(points),))
-    print(points)
     
     smoothed_points = smooth(points)
-    print(smoothed_points)
     print('Filtered distance: %0.2f' % (distance(smoothed_points),))
     output_gpx(smoothed_points, 'out.gpx')
 
