@@ -13,11 +13,10 @@ movie_title_rating_df = pd.read_csv(filename2)
 
 # source: https://stackoverflow.com/questions/72610732/convert-multiple-python-lines-to-a-concurrent-dataframe-and-merge-with-source-da
 def find_close_matches(word):
-    match = dl.get_close_matches(word, movie_title_df['title'])
+    match = dl.get_close_matches(word, movie_title_df['title'], cutoff=0.6, n=3)
     return match[0] if match else pd.NaT
 
 movie_title_rating_df['title'] = movie_title_rating_df['title'].apply(find_close_matches)
-a = movie_title_rating_df.groupby(['title'], dropna=True).mean()
-
-print(a)
-print(movie_title_rating_df.dtypes)
+average_rating = movie_title_rating_df.groupby(['title'], dropna=True).mean()
+average_rating['rating'] = round(average_rating['rating'], 2)
+average_rating.to_csv(filename3)
