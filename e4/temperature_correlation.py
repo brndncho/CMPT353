@@ -16,6 +16,7 @@ stations['avg_tmax'] = stations['avg_tmax'] / 10 # change tmax to C
 city_data = city_data.dropna() # drop cities with missing data
 city_data['area'] = city_data['area'] / (10**6) # m to km is 10^-6
 city_data['density'] = city_data['population'] / city_data['area']
+city_data = city_data.drop(city_data[city_data['area'] >= 10000].index)
 #print(stations)
 #print(city_data)
 
@@ -42,7 +43,7 @@ def best_tmax(city, stations):
     return stations.loc[closest_station, 'avg_tmax'] # find row with the closest station and take the temperature
 
 city_data['avg_tmax'] = city_data.apply(best_tmax, stations=stations, axis=1)
-print(city_data)
+#print(city_data)
 
 plt.scatter(city_data['avg_tmax'], city_data['density'])
 plt.title('Temperature vs Population Density')
