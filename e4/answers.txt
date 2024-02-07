@@ -1,0 +1,2 @@
+1. Looking at the graph, there doesnt seem to be a correlation between the average max temperature and density. Excluding the lower range of temperatures, population density is well spread between the temperature ranges, with a few outliers.
+2. The storage medium storing the json file might be slow, the decompression algorithm might be fast enough to warrant using compressed json, using compressed json might be more cache efficient than json, leading to faster read/write speeds.
