@@ -1,0 +1,12 @@
+data-1.csv
+x mean = 8.71769618641382
+y mean = 12.522874034702584
+x standard deviation = 12.155517231222026
+y standard deviation = 6.639964007567851
+x min = -22.635877790008944
+y min = -2.565087832693213
+x max = 35.23705548785129
+y max = 27.38415261152477
+correlation = 0.9503256954375483
+There is a strong linear relationship between x and y, on average y values are larger than x values, and x is more variable, finally, x has a higher max and lower min than y.
+
