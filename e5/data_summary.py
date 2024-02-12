@@ -1,6 +1,7 @@
 import pandas as pd 
+#from scipy import stats
 
-data = pd.read_csv('data-2.csv')
+data = pd.read_csv('data-6.csv')
 #print(data)
 
 # mean
@@ -25,4 +26,6 @@ print('max values = ', x_max, y_max)
 
 # correlation (r) value
 x_y_corr = data['x'].corr(data['y'])
+#x_y_corr_2 = stats.linregress(data['x'], data['y']).rvalue
 print('correlation = ', x_y_corr)
+#print('correlation2: =', x_y_corr_2)

@@ -10,3 +10,62 @@ y max = 27.38415261152477
 correlation = 0.9503256954375483
 There is a strong linear relationship between x and y, on average y values are larger than x values, and x is more variable, finally, x has a higher max and lower min than y.
 
+data-2.csv
+x mean = -0.7107871267159573
+y mean = -0.7489869764497991
+x standard deviation = 11.481583587790734
+y standard deviation = 6.257917998755848
+x min = -33.2711130771198
+y min = -18.621803760419063
+x max = 27.6470003722073
+y max = 14.14731499231748
+correlation = 0.9551531665750373
+There is a strong linear relationship between x and y, on average the x and y values are similar, x is more variable, x has a lower min and higher max.
+
+data-3.csv
+x mean = 0.9689074904200939
+y mean = 8.508535236641327
+x standard deviation = 2.23555786105797
+y standard deviation = 1.1493008110024527
+x min = -2.4490643296742807
+y min = 6.641734490391763
+x max = 4.51888491755363
+y max = 10.551871022804317
+correlation = 0.981937264676066
+There is a strong linear relationship between x and y, on average y values are larger, both have relatively lower variance, x has a lower min, y has a higher max.
+
+data-4.csv
+x mean = 49.90508614830509
+y mean = 18.553836525423726
+x standard deviation = 28.508610519881923
+y standard deviation = 16.545896442941686
+x min = 0.0
+y min = 0.0
+x max = 87.3767
+y max = 44.56504
+correlation = -0.08119306735490815
+There is little to no linear relationship between x and y, on average x values are larger, have a higher variance, and both have a min of 0. X has a higher max value.
+
+data-5.csv
+x mean = 49.90999357843095
+y mean = 18.555524937729086
+x standard deviation = 28.500000943801364
+y standard deviation = 16.540796301840782
+x min = 4.337892453674525
+y min = 0.0554975075811517
+x max = 91.0528633396976
+y max = 9.93419703633311
+correlation = -0.08823598983058879
+There is little to no linear relationship between x and y, on average x values are larger, and have more variance. Y has a lower min value, x has a higher max value.
+
+data-6.csv
+x mean = 7.21615517960992
+y mean = 7.602215028237295
+x standard deviation = 11.921599067458313
+y standard deviation = 11.764382455006647
+x min = -24.33382075234097
+y min = -22.9563569970746
+x max = 35.402138910929
+y max = 36.07987403078143
+correlation = 0.9350685662094906
+There is a strong linear relationship between x and y, both have about the same variance and mean. X and Y min and max values are relatively similar.
