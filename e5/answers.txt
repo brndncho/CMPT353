@@ -1,0 +1,4 @@
+1. Out of the 4 options, the np.log transformation was most effective, as the normality test gave a higher pvalue than the others. np.exp did not work for me as it gave an error.
+2. Because the pvalue is < 0.05, we can assume that the two data sets have different mean values.
+3. The original data is right-skewed, so using the sqrt or log(in this case) would be able to transform it to be more normal. Normal distributions are easy to understand, to get the mean, std dev, etc, so it would be most optimal to find if there are differences in the number of comments between each data set.
+4. By looking at the counts_weekdays and counts_weekends dataframes and adding up the numbers, we can see that the weekdays have more comments than weekends. We can also come to the same conclusion if we graph the two dataframes and compare.
