@@ -3,7 +3,7 @@ from implementations import all_implementations
 import pandas as pd
 import numpy as np
 
-random_array = np.random.randint(5000, size=5000)
+random_array = np.random.randint(7000, size=7000)
 
 data = pd.DataFrame(columns = ['qs1', 'qs2', 'qs3', 'qs4', 'qs5', 'merge1', 'partition_sort'])
 
