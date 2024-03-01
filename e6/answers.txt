@@ -1,0 +1,7 @@
+1. I am comfortable with the conclusion, although we are using non parametric tests, we are using data with more than n > 40. I do not think we are p-hacking, since we are not lying to ourselves to a certain conclusion (although the data is faked)
+2. We would do 2C7 tests. Theres a 5% chance of rejecting the null hypothesis by pure chance, the rest of 95% is a good enough probability to trust the result.
+3. By looking at the plot and the posthoc, 
+    (fastest -> slowest)
+    partition sort, qs1, qs5, qs3, qs2, qs4, merge1
+    qs5, qs3, qs2 could not be distinguished (reject = False)
+    merge and qs4 could not be distinguished (reject = False)
