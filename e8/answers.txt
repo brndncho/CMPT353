@@ -1,0 +1,3 @@
+1. For my test results, the k nearest neighbours model produced the most consistent results, with both rgb and lab. This may because the original image is a gradient and k nearest neighbours works best, depending on the nearest training points.
+   Most models performed better or at least on par with the lab colours. This may be because the lab colour space is more uniform than rgb, producing more consistent results with the training model.
+2. 
