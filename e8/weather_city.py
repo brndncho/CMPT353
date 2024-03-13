@@ -33,3 +33,7 @@ print("score: ", score)
 # predict based on trained model
 predictions = mlp_model.predict(x_unlabelled_scaled)
 pd.Series(predictions).to_csv(sys.argv[3], index=False, header=False)
+
+# check for wrong prediction
+df = pd.DataFrame({'truth': y_valid, 'prediction': mlp_model.predict(X_valid)})
+#print(df[df['truth'] != df['prediction']])

@@ -1,3 +1,19 @@
 1. For my test results, the k nearest neighbours model produced the most consistent results, with both rgb and lab. This may because the original image is a gradient and k nearest neighbours works best, depending on the nearest training points.
    Most models performed better or at least on par with the lab colours. This may be because the lab colour space is more uniform than rgb, producing more consistent results with the training model.
-2. 
+2. Looking at the wrong predictions, I feel like the model is making reasonable mistakes.
+
+   truth prediction
+   683        Portland    Seattle
+   662        Portland    Seattle
+   907       Saskatoon     Regina
+   128   Atlantic City    Chicago
+   926         Seattle  Vancouver
+   ...             ...        ...
+   546        Montreal     Ottawa
+   1010        Toronto    Chicago
+   894       Saskatoon     Regina
+   1155       Winnipeg     Regina
+   684        Portland    Seattle
+
+   As you can see, where the model is making mistakes is where the cities are geographically close to one another, therefore it can be highly possible that weather data is similar in many ways. 
+   Some weather features that may be able to improve the predictions could be altitude, wind speeds, humidity, or atmospheric pressure.
