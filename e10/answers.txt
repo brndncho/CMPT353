@@ -1,10 +1,17 @@
+1.
 Startup
-spark-submit '--master=local[1]' reddit_averages.py reddit-0 output  8.37s user 2.23s system 266% cpu 3.979 total
+spark-submit '--master=local[1]' reddit_averages.py reddit-0 output  8.37s user 2.23s system 266% cpu 3.979 total (baseline)
 
 Times with/without schema argument
-spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  12.46s user 1.80s system 230% cpu 6.199 total
-spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  15.19s user 2.52s system 207% cpu 8.553 total
+spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  12.46s user 1.80s system 230% cpu 6.199 total (with schema)
+spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  15.19s user 2.52s system 207% cpu 8.553 total (without schema)
 
 DataFrame Re-use without/with cache
-spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  11.82s user 2.28s system 216% cpu 6.495 total
-spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  15.81s user 2.76s system 248% cpu 7.475 total
+spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  11.82s user 2.28s system 216% cpu 6.495 total (without cache)
+spark-submit '--master=local[1]' reddit_averages.py reddit-2 output  15.81s user 2.76s system 248% cpu 7.475 total (with cache)
+
+2.
+Reading the files, as the time even slowed down while using cache, so I am assuming caching the averages has a neglibible difference.
+
+3.
+After the tables are joined, as it was being used repeatedly afterwards.
