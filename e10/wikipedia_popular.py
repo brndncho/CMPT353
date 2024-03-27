@@ -47,7 +47,7 @@ def main(in_directory, out_directory):
     data_grouped_hours = data.groupby('hours').agg(functions.max(data['times_requested']).alias('times_requested'))
     
     # join tables
-    joined_data = data.join(data_grouped_hours, ['times_requested', 'hours'])#.cache()
+    joined_data = data.join(data_grouped_hours, ['times_requested', 'hours']).cache()
     joined_data = joined_data.sort('hours')
     joined_data = joined_data.select('hours', 'page', 'times_requested')
     
