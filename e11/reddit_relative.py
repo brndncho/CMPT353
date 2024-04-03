@@ -35,16 +35,29 @@ comments_schema = types.StructType([
 
 
 def main(in_directory, out_directory):
-    comments = spark.read.json(in_directory, schema=comments_schema)
-
-    # TODO: calculate averages, sort by subreddit. Sort by average score and output that too.
-
+    comments = spark.read.json(in_directory, schema=comments_schema).cache()
+    
+    # Calculate the average score for each subreddit, as before.
     groups = comments.groupBy('subreddit') # group by subreddit
-    result = groups.agg(functions.avg(comments['score'])) # average scores by subreddit
-    result.sort('avg(score)').write.csv(out_directory + '-score', mode='overwrite')
+    result = groups.agg(functions.avg(comments['score'])).cache() # average scores by subreddit
 
-    #best_author.write.json(out_directory, mode='overwrite')
+    # Exclude any subreddits with average score ≤0.
+    result = result.filter(result['avg(score)'] > 0)
 
+    # Join the average score to the collection of all comments. Divide to get the relative score.
+    comments = comments.join(result, ['subreddit'])
+    comments = comments.withColumn('rel_score', (comments['score'] / comments['avg(score)']))
+
+    # Determine the max relative score for each subreddit.
+    comments_grouped_subreddit = comments.groupby('subreddit').agg(functions.max(comments['rel_score']).alias('rel_score')).cache()
+
+    # Join again to get the best comment on each subreddit: we need this step to get the author.
+    best_author = comments.join(comments_grouped_subreddit, ['subreddit', 'rel_score']).cache()
+    best_author = best_author.select('subreddit', 'author', 'rel_score')
+
+    # Output should be uncompressed JSON (as in the hint) with the fields subreddit, author, (from the original data) and rel_score (calculated as above).
+    best_author.write.json(out_directory, mode='overwrite')
+    # use command (cat output/part-* | less) to see output 
 
 if __name__=='__main__':
     in_directory = sys.argv[1]
