@@ -41,10 +41,10 @@ def create_row_rdd(in_directory):
 
 
 def main(in_directory):
-    logs = spark.createDataFrame(create_row_rdd(in_directory))
+    logs = spark.createDataFrame(create_row_rdd(in_directory)).cache()
 
     # Group by hostname; get the number of requests and sum of bytes transferred, to form a data point
-    logs_groupby_host = logs.groupBy('host_name').agg(functions.sum(logs['bytes_transferred']).alias('y'), functions.count(logs['host_name']).alias('x'))
+    logs_groupby_host = logs.groupBy('host_name').agg(functions.sum(logs['bytes_transferred']).alias('y'), functions.count(logs['host_name']).alias('x')).cache()
 
     # To produce “the six sums”, you can call .groupBy() with no arguments to aggregate the entire DataFrame to one row.
     agg_logs = logs_groupby_host.groupBy()

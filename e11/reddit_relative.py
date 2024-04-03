@@ -46,7 +46,7 @@ def main(in_directory, out_directory):
 
     # Join the average score to the collection of all comments. Divide to get the relative score.
     comments = comments.join(result, ['subreddit'])
-    comments = comments.withColumn('rel_score', (comments['score'] / comments['avg(score)']))
+    comments = comments.withColumn('rel_score', (comments['score'] / comments['avg(score)'])).cache()
 
     # Determine the max relative score for each subreddit.
     comments_grouped_subreddit = comments.groupby('subreddit').agg(functions.max(comments['rel_score']).alias('rel_score')).cache()

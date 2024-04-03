@@ -1,0 +1,11 @@
+1. 
+For caching I used it on:
+The average score as I had to use it right after to filter out the average scores with 0
+The comments as they were used multiple times 
+The comments_grouped_subreddit as they were used for the join
+And best_author as it was used for selection for the final result
+
+If I had not used caching, pyspark would run slower, as it is lazy.
+
+2.
+broadcast() increased the speed of the running time, on average saving about 15 seconds/run.
