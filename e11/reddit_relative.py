@@ -1,5 +1,6 @@
 import sys
 from pyspark.sql import SparkSession, functions, types
+#from pyspark.sql.functions import broadcast
 
 spark = SparkSession.builder.appName('reddit relative scores').getOrCreate()
 spark.sparkContext.setLogLevel('WARN')
@@ -46,6 +47,7 @@ def main(in_directory, out_directory):
 
     # Join the average score to the collection of all comments. Divide to get the relative score.
     comments = comments.join(result, ['subreddit'])
+    #comments = comments.join(broadcast(result), ['subreddit'])
     comments = comments.withColumn('rel_score', (comments['score'] / comments['avg(score)'])).cache()
 
     # Determine the max relative score for each subreddit.
@@ -53,6 +55,7 @@ def main(in_directory, out_directory):
 
     # Join again to get the best comment on each subreddit: we need this step to get the author.
     best_author = comments.join(comments_grouped_subreddit, ['subreddit', 'rel_score']).cache()
+    #best_author = comments.join(broadcast(comments_grouped_subreddit), ['subreddit', 'rel_score']).cache()
     best_author = best_author.select('subreddit', 'author', 'rel_score')
 
     # Output should be uncompressed JSON (as in the hint) with the fields subreddit, author, (from the original data) and rel_score (calculated as above).

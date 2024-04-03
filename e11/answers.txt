@@ -8,4 +8,8 @@ And best_author as it was used for selection for the final result
 If I had not used caching, pyspark would run slower, as it is lazy.
 
 2.
-broadcast() increased the speed of the running time, on average saving about 15 seconds/run.
+Tested locally with reddit-1 data
+26.35s user 3.20s system 474% cpu 6.230 total - without broadcast()
+21.98s user 3.18s system 433% cpu 5.804 total - with broadcast()
+
+broadcast incrased the speed of the running time.
